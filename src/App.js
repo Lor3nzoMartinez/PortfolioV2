@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faIdBadge } from "@fortawesome/free-solid-svg-icons";
+
+import InfoCard from "./components/InfoCard/InfoCard";
+import CardData from "./data/CardData.json";
+
+import "./App.css";
 
 function App() {
+  const cards = [...CardData.cards];
+  console.log(cards);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <body>
+      <div className="container">
+        {cards.map((data) => (
+          <InfoCard
+            title={data.title}
+            icon={data.icon}
+            content={data.content}
+          />
+        ))}
+      </div>
+    </body>
   );
 }
 
