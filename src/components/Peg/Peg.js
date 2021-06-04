@@ -1,45 +1,40 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faThumbtack } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
 
-function Peg({ pressed }) {
+function Peg({ pressed, title, id }) {
+  console.log("ID: ", id);
+
   const PegFlat = styled.div`
     position: relative;
     margin: 50px;
 
     .top {
       position: absolute;
-      width: 70px;
+      width: 30px;
       height: 25px;
 
-      background-color: #666;
-
-      padding-left: 5px;
-      padding-right: 5px;
-
-      border-radius: 2px;
+      background-color: #333;
 
       top: 10px;
       right: -15px;
+
+      transition: 0.5s;
     }
 
-    .click-text {
+    .icon-props {
       position: absolute;
-      width: 70px;
-      heigth: 20px;
+      width: 30px;
+      height: 30px;
 
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
+      opacity: 0.4;
 
-      opacity: 0.5;
+      top: -25px;
+      right: 25px;
+      transform: rotate(180deg);
 
-      white-space: nowrap;
-
-      top: 12px;
-      right: -9px;
-
-      cursor: pointer;
+      transition: 0.5s;
     }
   `;
 
@@ -49,64 +44,30 @@ function Peg({ pressed }) {
 
     .top {
       position: absolute;
-      width: 70px;
+      width: 30px;
       height: 25px;
 
-      background-color: #666;
-
-      padding-left: 5px;
-      padding-right: 5px;
-
-      border-radius: 2px;
-
-      top: 3px;
-      right: -15px;
-    }
-
-    .middle {
-      position: absolute;
-      width: 70px;
-      height: 25px;
-
-      background-color: #444;
-
-      top: 6px;
-      right: -15px;
-    }
-
-    .bottom {
-      position: absolute;
-      width: 80px;
-      height: 25px;
-
-      background-color: #444;
-
-      border-radius: 2px;
-
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.75);
+      background-color: #ff0057;
+      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
 
       top: 10px;
       right: -15px;
+
+      transition: 0.5s;
     }
 
-    .click-text {
+    .pin-top {
       position: absolute;
-      width: 70px;
-      heigth: 20px;
+      width: 15px;
+      height: 15px;
 
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
+      background-color: #000;
+      border-radius: 50%;
 
-      opacity: 0.5;
+      top: 15px;
+      right: 0px;
 
-      white-space: nowrap;
-
-      top: 5px;
-      right: -9px;
-
-      cursor: pointer;
+      transition: 0.5s;
     }
   `;
 
@@ -114,17 +75,15 @@ function Peg({ pressed }) {
     <div>
       {pressed ? (
         <Peg>
-          <div className="bottom" />
-          <div className="middle" />
-          <div className="top" />
-          <div className="click-text">Click Me</div>
+          <div id={`${id}`} className="pin-top" />
         </Peg>
       ) : (
         <PegFlat>
-          <div className="bottom" />
-          <div className="middle" />
-          <div className="top" />
-          <div className="click-text">Click Me</div>
+          <img
+            id={`${id}`}
+            className={`icon-props`}
+            src="https://static.thenounproject.com/png/408355-200.png"
+          />
         </PegFlat>
       )}
     </div>

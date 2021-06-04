@@ -1,0 +1,52 @@
+body{
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: consolas;
+}
+
+.info-container {
+  position: absolute;
+  top: -5px;
+
+  color: #fff;
+  opacity: 0.3;
+
+  font-family: consolas;
+  font-size: 20px;
+  font-weight:900;
+}
+
+.card-container {
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.social-container {
+  position: absolute;
+  width: 35%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  bottom: 15px;
+}
+
+.social {
+  opacity: 0.3;
+  transition: 0.5s;
+}
+
+.social:hover {
+  opacity: 1;
+  transform: scale(1.2);
+}
